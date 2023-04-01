@@ -1,0 +1,19 @@
+<section class="category">
+    <h2> Category </h2>
+    <p>Search using category name</p>
+    <input type="text" class="form-control" [(ngModel)]="term">
+    <div class="row" *ngIf="!loading">
+        <div class="col-md-4 my-4" *ngFor="let cat of categoryDetailsArray|search:term">
+            <div class="card category">
+                <img [src]=cat.image class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{cat.title | cutTitle}}</h5>
+                    <p>{{cat.price}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-spinner *ngIf="loading"></app-spinner>
+
+</section>

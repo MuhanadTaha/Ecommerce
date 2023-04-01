@@ -1,0 +1,31 @@
+<section>
+    <h2 class="text-center p-4">Delete Product</h2>
+
+    <form >
+        <div class="row" *ngIf="DisplayComp">
+            <div class="col-md-4">
+                <div class="image">
+                    <img [src]=productArray?.image class="w-100" alt="">
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="product-details">
+                    <input type="text"  class="form-control mb-3" [value]=productArray?.title>
+                    
+                    <input type="text"  class="form-control mb-3" [value]=productArray?.price>
+                   
+                </div>
+        
+                <button  class="btn btn-danger me-1" (click)="deleteProd()">Delete</button> 
+
+
+            </div>
+
+        </div>
+
+    </form>
+
+
+    <app-spinner *ngIf="loading"></app-spinner>
+</section>

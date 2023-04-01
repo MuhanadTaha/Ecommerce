@@ -1,0 +1,12 @@
+.login{
+    padding:70px;
+}
+
+
+.login form{
+    border:solid 1px rgb(202, 201, 201);
+    border-radius: 7px;
+    padding:10px 25px;
+    margin:40px 0px;
+    box-shadow: 3px 3px 12px #888888;
+}

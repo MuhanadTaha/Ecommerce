@@ -1,0 +1,52 @@
+<section class="cart">
+    <h2> Cart </h2>
+    
+    <div class="row" *ngIf="!loading">
+        <div class="col-md-12 my-4" *ngFor="let cart of cartDetailsArray">
+            <div class="card-body">
+                <h5 class="card-title">{{cart.id}}</h5>
+                <p>{{cart.userId}}</p>
+                <p>{{cart.products.quantity}}</p>
+                <p>{{cart.date}}</p>
+            </div>
+            <div>
+               
+                
+
+                <h5> Products Id</h5>
+                <div class="row" *ngFor="let data of cart.products">
+                    <div class="col-lg-3 border">
+                     <h5 > {{data.productId}}</h5> 
+                    </div>
+
+                    <br>
+                    <!-- <div class="col-6">
+                        <div class="col-md-6 my-4" *ngFor="let product of productsArray|userProducts:9">
+                            <div class="card product">
+                              <img [src]=product.image class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title">{{product.title | cutTitle}}</h5>
+                                <p> {{product.id}}</p>
+                              </div>
+                            </div>
+                          </div>
+                    </div> -->
+                </div>
+            </div>
+            
+        </div>
+
+
+        <!-- <app-products></app-products> -->
+
+    
+
+
+       
+    </div>
+
+   
+<!-- <app-products></app-products> -->
+    <app-spinner *ngIf="loading"></app-spinner>
+
+</section>

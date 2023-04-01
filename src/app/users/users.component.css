@@ -1,0 +1,15 @@
+.add{
+    text-align: right;
+    margin-bottom: 7px;
+}
+
+
+.user{
+    transition:transform .9s;
+}
+.user:hover{
+   
+    transform: scale(1.1);
+    box-shadow: 0px 5px 12px 1px #888888;
+
+}

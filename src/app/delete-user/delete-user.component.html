@@ -1,0 +1,28 @@
+<section>
+    <h2 class="text-center p-4">Delete User</h2>
+
+    <form >
+        <div class="row" *ngIf="DisplayComp">
+            <div class="col-md-4">
+                <div class="image">
+                    <img src="../../assets/image/default-user-image.png" alt="" class="w-100" />
+
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="product-details">
+                    <input type="text"  class="form-control mb-3" [value]=UserArray?.email>
+                    
+                    <input type="text"  class="form-control mb-3" [value]=UserArray?.username>
+                   
+                </div>
+        
+                <button  class="btn btn-danger me-1" (click)="deleteUse()">Delete</button> 
+            </div>
+        </div>
+    </form>
+
+
+    <app-spinner *ngIf="loading"></app-spinner>
+</section>

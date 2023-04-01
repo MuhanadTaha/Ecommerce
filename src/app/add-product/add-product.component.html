@@ -1,0 +1,65 @@
+<section class="addProduct">
+    <form [formGroup]="addProductForm" (ngSubmit)="submitForm(addProductForm)">
+        <div class="my-3 row">
+
+            <div class="my-5 border rounded p-5 compnents">
+                <div class="mb-3 row">
+                    <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" [(ngModel)]="title" formControlName="title" class="form-control" id="inputTitle">
+                        <p class="text-danger"
+                            *ngIf="addProductForm.get('title')?.getError('required')&&addProductForm.get('title')?.touched">
+                            title is required</p>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputPrice" class="col-sm-2 col-form-label">Price</label>
+                    <div class="col-sm-10">
+                        <input type="text" [(ngModel)]="price" formControlName="price" class="form-control" id="inputPrice" type="number">
+                        <p class="text-danger"
+                            *ngIf="addProductForm.get('price')?.getError('required')&&addProductForm.get('price')?.touched">
+                            price is required</p>
+                        <p class="text-danger"
+                            *ngIf="addProductForm.get('price')?.getError('min')&&addProductForm.get('price')?.touched">
+                            enter above zero</p>
+                        <p class="text-danger"
+                            *ngIf="addProductForm.get('price')?.getError('max')&&addProductForm.get('price')?.touched">
+                            enter below 10000</p>
+
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" [(ngModel)]="description" formControlName="description" class="form-control" id="inputDescription">
+                        <p class="text-danger"
+                            *ngIf="addProductForm.get('description')?.getError('required')&&addProductForm.get('description')?.touched">
+                            description is required</p>
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputImage" class="col-sm-2 col-form-label">Image</label>
+                    <div class="col-sm-10">
+                        <input type="file"  class="form-control" id="inputImage">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputCategory" class="col-sm-2 col-form-label">Category Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" [(ngModel)]="category" formControlName="category" class="form-control" id="inputCategory">
+                        <p class="text-danger"
+                            *ngIf="addProductForm.get('category')?.getError('required')&&addProductForm.get('category')?.touched">
+                            price is required</p>
+
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+
+        </div>
+    </form>
+</section>

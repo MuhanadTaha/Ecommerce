@@ -1,0 +1,25 @@
+<div class="login my-5">
+<h2>Login </h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm)">
+        <div class="form-group my-4">
+          <label for="username">username</label>
+          <input  class="form-control" formControlName="username" placeholder="Enter username">
+          <p class="text-danger" *ngIf="loginForm.get('username')?.getError('required')
+            &&loginForm.get('password')?.touched">username is required</p>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" formControlName="password"  placeholder="Enter Password">
+
+          <p class="text-danger" *ngIf="loginForm.get('password')?.getError('required')
+            &&loginForm.get('password')?.touched">password is required</p>
+
+
+
+          <p class="text-danger">{{faild}}</p>
+        </div>
+        <button type="submit" class="btn btn-primary mt-5">Login</button>
+      </form>
+</div>
+

@@ -1,0 +1,42 @@
+<section>
+    <h2 class="text-center p-4">Product Details</h2>
+
+    <form [formGroup]="updateProductForm" (ngSubmit)="submitForm(updateProductForm)">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="image">
+                    <img [src]=productArray?.image class="w-100" alt="">
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="product-details">
+                    <input type="text" formControlName="title"  class="form-control mb-3" [value]=productArray?.title>
+                    <p class="text-danger"
+                            *ngIf="updateProductForm.get('title')?.getError('required')&&updateProductForm.get('title')?.touched">
+                            title is required</p>
+                    <textarea type="text" formControlName="description" class="form-control mb-3" rows="5" value=" {{productArray?.description}}"></textarea>
+                    <p class="text-danger"
+                            *ngIf="updateProductForm.get('description')?.getError('required')&&updateProductForm.get('description')?.touched">
+                            description is required</p>
+                    <input type="text" formControlName="category" class="form-control mb-3" [value]=productArray?.category>
+                    <input type="text" formControlName="price" class="form-control mb-3" [value]=productArray?.price>
+                    <p class="text-danger"
+                            *ngIf="updateProductForm.get('price')?.getError('required')&&updateProductForm.get('price')?.touched">
+                            price is required</p>
+                        <p class="text-danger"
+                            *ngIf="updateProductForm.get('price')?.getError('min')&&updateProductForm.get('price')?.touched">
+                            enter above zero</p>
+                        <p class="text-danger"
+                            *ngIf="updateProductForm.get('price')?.getError('max')&&updateProductForm.get('price')?.touched">
+                            enter below 10000</p>
+                    <input type="text" disabled class="form-control mb-3" [value]=productArray?.rating.rate>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+
+            </div>
+
+        </div>
+
+    </form>
+</section>

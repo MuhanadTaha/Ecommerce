@@ -1,0 +1,21 @@
+<section>
+    <h2>Product Details</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="image">
+                <img [src]=productDetailsArray.image class="card-img-top w-100" alt="...">
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="product-details">
+                <h2>{{productDetailsArray.title}}</h2>
+                <p>{{productDetailsArray.description}}</p>
+                <h4>{{productDetailsArray.category}}</h4>
+                <p>{{productDetailsArray.price | currency:'USD'}}</p>
+                <p>{{productDetailsArray.rating.rate}}</p>
+            </div>
+        </div>
+    </div>
+</section>

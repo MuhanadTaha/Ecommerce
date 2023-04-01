@@ -1,0 +1,40 @@
+<section class="products">
+  <h2>Products</h2>
+  <p>Search using product name</p>
+  
+ 
+  <input type="text" class="form-control" [(ngModel)]="term">
+  <div class="add mt-2">
+    <div class="row">
+
+      <div class="col-6">
+        <input type="text" [(ngModel)]="numProd" class="form-control text-dark w-50" (keyup)="onKeyupEvent($event)" placeholder="enter product number"  />
+
+      </div>
+      <div class="col-6">
+        <button  class="btn btn-danger me-1" (click)="ngOnInit()"><i class="fa-solid fa-down-long"></i></button> 
+        <button  class="btn btn-danger me-2" (click)="sortProduct()"><i class="fa-solid fa-up-long"></i></button> 
+        <a routerLink="/product/addProduct" class="btn btn-success">Add Product <i class="fa-regular fa-plus"></i></a>
+      </div>
+    </div>
+   
+    
+  </div>
+  <div class="row" *ngIf="!loading">
+    <div class="col-md-4 my-4" *ngFor="let product of productArray|search:term">
+      <div class="card product">
+        <img [src]=product.image class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{product.title | cutTitle}}</h5>
+          <div class="btn btn-group">
+            <a [routerLink]="['/product/details/', product.id]" class="btn btn-primary">Details</a>
+            <a [routerLink]="['/product/update/',product.id]" class="btn btn-secondary">Update</a>
+            <a  [routerLink]="['/product/delete/',product.id]" class="btn btn-danger">Delete</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-spinner *ngIf="loading"></app-spinner>
+</section>

@@ -1,0 +1,25 @@
+<section >
+    <h2 class="text-center p-4">Delete Cart</h2>
+
+    <form  *ngIf="!loading">
+        <div class="row" *ngIf="DisplayComp">
+            
+<div>
+    <div class="col-md-6 pb-5">
+        <div class="product-details">
+            <input type="text"  class="form-control mb-3" [value]=cartArray?.email>
+            
+            <input type="text"  class="form-control mb-3" [value]=cartArray?.username>
+           
+        </div>
+
+        <button  class="btn btn-danger me-1" (click)="deleteCart()">Delete</button> 
+    </div>
+</div>
+</div>
+          
+    </form>
+
+
+    <app-spinner *ngIf="loading"></app-spinner>
+</section>
